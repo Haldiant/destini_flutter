@@ -1,4 +1,5 @@
 import 'package:destini_flutter/custom_style.dart';
+import 'package:destini_flutter/story_brain.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,6 +17,8 @@ class MyDestini extends StatelessWidget {
     );
   }
 }
+
+StoryBrain storyBrain = StoryBrain();
 
 class DestiniStory extends StatefulWidget {
   const DestiniStory({super.key});
@@ -37,7 +40,7 @@ class _DestiniStoryState extends State<DestiniStory> {
         ),
         padding: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 50.0),
         constraints: const BoxConstraints.expand(),
-        child: const SafeArea(
+        child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -45,12 +48,12 @@ class _DestiniStoryState extends State<DestiniStory> {
                 flex: 10,
                 child: Center(
                   child: Text(
-                    "Cerita ditampilkan disini",
+                    storyBrain.getStory(0),
                     style: CustomTextStyle.headOfAppText,
                   ),
                 ),
               ),
-              Expanded(
+              const Expanded(
                 flex: 2,
                 child: TextButton(
                   onPressed: null,
@@ -61,10 +64,10 @@ class _DestiniStoryState extends State<DestiniStory> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
-              Expanded(
+              const Expanded(
                 flex: 2,
                 child: TextButton(
                   onPressed: null,
